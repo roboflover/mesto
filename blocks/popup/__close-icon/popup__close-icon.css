@@ -6,3 +6,7 @@
   height: 20px;
   cursor: pointer;
 }
+
+.popup__close-icon:hover {
+  opacity: 0.6;
+}

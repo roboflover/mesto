@@ -1,0 +1,8 @@
+.element__image {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 282px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-size: cover;
+}

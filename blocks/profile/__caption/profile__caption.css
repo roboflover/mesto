@@ -1,7 +1,5 @@
 .profile__caption {
-  margin: 0;
-  /* grid-area: caption; */
-  grid-column: 1/3;
+  margin: 8px auto 0 auto;
 
   font-style: normal;
   font-weight: 400;

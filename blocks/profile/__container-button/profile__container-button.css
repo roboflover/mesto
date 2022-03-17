@@ -1,0 +1,16 @@
+.profile__container-button {
+  margin: 32px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  max-width: 282px;
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  cursor: pointer;
+}
+
+.profile__container-button:hover {
+  opacity: 0.6;
+}
