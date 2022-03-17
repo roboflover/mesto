@@ -1,11 +1,10 @@
 .profile__info {
   margin: 22.25px auto 0 auto;
-  padding-left: 10px;
   display: grid;
   grid-template-columns: fit-content(100%) 18px;
   gap: 14px 10px;
   grid-template-areas:
-    'name edit-button'
-    'caption null';
+    'name'
+    'caption';
   justify-content: center;
 }
