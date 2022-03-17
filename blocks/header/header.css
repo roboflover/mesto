@@ -1,0 +1,6 @@
+.header {
+  margin: 0px auto;
+  max-width: 468px;
+  display: flex;
+  flex-direction: column;
+}

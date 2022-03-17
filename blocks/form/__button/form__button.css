@@ -1,0 +1,16 @@
+.form__button {
+  width: 238px;
+  height: 46px;
+  margin-top: 45px;
+  border-radius: 2px;
+  border-color: black;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}

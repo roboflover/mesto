@@ -1,0 +1,10 @@
+.profile__avatar {
+  margin: 0 auto 0 auto;
+  width: 127.5px;
+  height: 127.5px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
+  background-image: url(../../../images/profile/avatar.jpg);
+  background-size: cover;
+}

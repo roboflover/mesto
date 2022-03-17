@@ -1,0 +1,18 @@
+.form__name {
+  width: 238px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: rgba(0, 0, 0, 0.2);
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #000000;
+}
+
+.form__name:focus {
+  outline: none;
+}
