@@ -1,8 +1,8 @@
 .profile__info {
-  margin: 22.25px auto 0 auto;
+  margin: 26px auto 0 auto;
   display: grid;
   grid-template-columns: fit-content(100%) 18px;
-  gap: 11px 10px;
+  gap: 7px 10px;
   grid-template-areas:
     'name'
     'caption';
