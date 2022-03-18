@@ -12,6 +12,15 @@
   cursor: pointer;
 }
 
+.profile__container-button::after {
+  content: '';
+  margin: 17px auto;
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  background-image: url(../../../images/profile/add-button.png);
+}
+
 .profile__container-button:hover {
   opacity: 0.6;
 }
@@ -30,5 +39,12 @@
     grid-row: 1/2;
     justify-self: end;
     align-self: center;
+  }
+
+  .profile__container-button::after {
+    margin-top: 14px;
+    height: 22px;
+    width: 22px;
+    background-image: url(../../../images/profile/add-button-big.png);
   }
 }
