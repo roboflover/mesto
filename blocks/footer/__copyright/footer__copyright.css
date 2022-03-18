@@ -7,3 +7,9 @@
   font-size: 14px;
   line-height: 17px;
 }
+
+@media screen and (min-width: 650px) {
+  .footer__copyright {
+    margin-left: 0;
+  }
+}

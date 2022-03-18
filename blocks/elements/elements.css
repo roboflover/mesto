@@ -1,3 +1,14 @@
 .elements {
-  margin: 36px auto 0 auto;
+  margin: 16px auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1024px;
+  width: 100%;
+}
+
+@media screen and (min-width: 650px) {
+  .elements {
+    margin-top: 51px;
+  }
 }
