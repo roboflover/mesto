@@ -1,4 +1,4 @@
-.profile__container-button {
+.profile__add-button {
   margin: 32px auto 0 auto;
   display: inline-block;
 
@@ -9,31 +9,36 @@
   height: 50px;
   outline: 2px solid #fff;
   outline-offset: -2px;
+  border-radius: 2px;
   cursor: pointer;
+
+  padding: 0;
+  border: none;
+  background-color: transparent;
 }
 
-.profile__container-button::after {
+.profile__add-button::after {
   content: '';
   margin: 17px auto;
   height: 16px;
   width: 16px;
   display: inline-block;
-  background-image: url(../../../images/profile/add-button.png);
+  background-image: url(../../../images/profile/add-button.svg);
 }
 
-.profile__container-button:hover {
+.profile__add-button:hover {
   opacity: 0.6;
 }
 
 @media screen and (min-width: 480px) and (max-width: 650px) {
-  .profile__container-button {
+  .profile__add-button {
     max-width: 600px;
   }
 }
 
 @media screen and (min-width: 650px) {
-  .profile__container-button {
-    margin: 71px 0 0 0;
+  .profile__add-button {
+    margin: 63px 0 0 0;
     width: 150px;
     grid-column: 3;
     grid-row: 1/2;
@@ -41,10 +46,10 @@
     align-self: center;
   }
 
-  .profile__container-button::after {
+  .profile__add-button::after {
     margin-top: 14px;
     height: 22px;
     width: 22px;
-    background-image: url(../../../images/profile/add-button-big.png);
+    background-image: url(../../../images/profile/add-button-big.svg);
   }
 }

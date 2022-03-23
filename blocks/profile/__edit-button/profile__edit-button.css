@@ -4,10 +4,15 @@
   width: 18px;
   height: 18px;
   align-self: center;
+
   background-color: rgb(0, 0, 0);
-  background-image: url(../../../images/profile/edit-button.png);
+  background-image: url(../../../images/profile/edit-button.svg);
 
   cursor: pointer;
+
+  padding: 0;
+  border: none;
+  background-color: transparent;
 }
 
 .profile__edit-button:hover {
@@ -23,7 +28,7 @@
     align-self: end;
     width: 24px;
     height: 24px;
-    background-image: url(../../../images/profile/edit-button-big.png);
+    background-image: url(../../../images/profile/edit-button-big.svg);
   }
 }
 

@@ -1,5 +1,7 @@
 .form__name {
+  padding-bottom: 9px;
   width: 238px;
+  border: solid 1px;
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -15,4 +17,10 @@
 
 .form__name:focus {
   outline: none;
+}
+
+@media screen and (min-width: 650px) {
+  .form__name {
+    width: 358px;
+  }
 }

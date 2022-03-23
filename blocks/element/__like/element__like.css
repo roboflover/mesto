@@ -4,8 +4,16 @@
   height: 19px;
   background-image: url(../../../images/elements/like-disabled.svg);
   cursor: pointer;
+
+  padding: 0;
+  border: none;
+  background-color: transparent;
 }
 
 .element__like:hover {
   background-image: url(../../../images/elements/like-hover.svg);
+}
+
+.element__like:active {
+  background-image: url(../../../images/elements/like-active.svg);
 }

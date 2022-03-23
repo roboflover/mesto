@@ -9,7 +9,6 @@
   <body class="page">
     <header class="header">
       <div class="header__logo"></div>
-      <div class="header__line"></div>
     </header>
 
     <main>
@@ -17,10 +16,18 @@
         <div class="profile__avatar"></div>
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <div class="profile__edit-button"></div>
+          <button
+            aria-label="edit button"
+            type="button"
+            class="profile__edit-button"
+          ></button>
         </div>
         <p class="profile__caption">Исследователь океана</p>
-        <div class="profile__container-button"></div>
+        <button
+          aria-label="add button"
+          type="button"
+          class="profile__add-button"
+        ></button>
       </section>
 
       <section class="elements">
@@ -32,7 +39,11 @@
           />
           <div class="element__card">
             <h2 class="element__title">Карачаевск</h2>
-            <div class="element__like"></div>
+            <button
+              aria-label="like"
+              type="button"
+              class="element__like"
+            ></button>
           </div>
         </article>
 
@@ -44,7 +55,11 @@
           />
           <div class="element__card">
             <h2 class="element__title">Гора Эльбрус</h2>
-            <div class="element__like"></div>
+            <button
+              aria-label="like"
+              type="button"
+              class="element__like"
+            ></button>
           </div>
         </article>
 
@@ -56,7 +71,11 @@
           />
           <div class="element__card">
             <h2 class="element__title">Домбай</h2>
-            <div class="element__like"></div>
+            <button
+              aria-label="like"
+              type="button"
+              class="element__like"
+            ></button>
           </div>
         </article>
 
@@ -68,7 +87,11 @@
           />
           <div class="element__card">
             <h2 class="element__title">Озеро Байкал</h2>
-            <div class="element__like"></div>
+            <button
+              aria-label="like"
+              type="button"
+              class="element__like"
+            ></button>
           </div>
         </article>
 
@@ -80,7 +103,11 @@
           />
           <div class="element__card">
             <h2 class="element__title">Озеро Селигер</h2>
-            <div class="element__like"></div>
+            <button
+              aria-label="like"
+              type="button"
+              class="element__like"
+            ></button>
           </div>
         </article>
 
@@ -92,7 +119,11 @@
           />
           <div class="element__card">
             <h2 class="element__title">Горы Шинхай</h2>
-            <div class="element__like"></div>
+            <button
+              aria-label="like"
+              type="button"
+              class="element__like"
+            ></button>
           </div>
         </article>
       </section>
@@ -100,16 +131,16 @@
 
     <section class="popup">
       <div class="popup__container">
-        <img
-          src="./images/popup/close-icon.svg"
+        <button
+          aria-label="close"
+          type="button"
           class="popup__close-icon"
-          alt="редактировать профиль"
-        />
+        ></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form">
+        <form class="form" name="mesto-form">
           <input type="text" class="form__name" value="" placeholder="" />
           <input type="text" class="form__caption" value="" placeholder="" />
-          <button class="form__button">Сохранить</button>
+          <button class="form__button" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
@@ -117,6 +148,6 @@
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/index.js"></script>
   </body>
 </html>
