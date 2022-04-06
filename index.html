@@ -79,6 +79,34 @@
       </div>
     </section>
 
+    <section class="addCardPopup">
+      <div class="addCardPopup__container">
+        <button
+          aria-label="close"
+          type="button"
+          class="addCardPopup__close-icon"
+        ></button>
+        <h2 class="addCardPopup__title">Новое место</h2>
+        <form class="formAddCard" name="mesto-form">
+          <input
+            type="text"
+            class="form__input"
+            id="formAddCard__name"
+            value=""
+            placeholder="Название"
+          />
+          <input
+            type="text"
+            class="form__input"
+            id="formAddCard__image"
+            value=""
+            placeholder="Ссылка на картинку"
+          />
+          <button class="addCardForm__button" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>

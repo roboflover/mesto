@@ -1,0 +1,11 @@
+.formAddCard {
+  margin-top: 73px;
+  width: 100%;
+  display: block;
+}
+
+@media screen and (min-width: 650px) {
+  .formAddCard {
+    margin-top: 47px;
+  }
+}
