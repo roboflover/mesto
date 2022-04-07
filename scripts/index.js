@@ -56,6 +56,7 @@ function addCard(cardTitle, cardImage) {
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
 
     cardElement.querySelector('.element__image').src = cardImage;
+    cardElement.querySelector('.element__image').alt = cardTitle;
     cardElement.querySelector('.element__title').textContent = cardTitle;
   
     cardElement.querySelector('.element__like').addEventListener('click', function (evt) {
