@@ -1,6 +1,8 @@
 .element {
-  margin: 20px 7.5px 0 7.5px;
   display: flex;
+  position: relative;
+  margin: 20px 7.5px 0 7.5px;
+
   flex-direction: column;
   width: 282px;
   height: 361px;

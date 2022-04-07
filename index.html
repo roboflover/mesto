@@ -35,11 +35,12 @@
 
     <template id="element-template">
       <article class="element">
-        <img
-          src="./images/elements/korachaevsk.jpg"
-          class="element__image"
-          alt="Карачаевск"
-        />
+        <button
+          aria-label="delete"
+          type="button"
+          class="element__delete"
+        ></button>
+        <img src="" class="element__image" alt="" />
         <div class="element__card">
           <h2 class="element__title">Карачаевск</h2>
           <button
@@ -104,6 +105,18 @@
           />
           <button class="addCardForm__button" type="submit">Сохранить</button>
         </form>
+      </div>
+    </section>
+
+    <section class="openImagePopup">
+      <div class="openImagePopup__container">
+        <button
+          aria-label="close"
+          type="button"
+          class="openImagePopup__close-icon"
+        ></button>
+        <img src="" class="openImagePopup__image-big" />
+        <h2 class="openImagePopup__title"></h2>
       </div>
     </section>
 

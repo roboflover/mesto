@@ -16,6 +16,12 @@ const formAddCard = addCardPopup.querySelector('.formAddCard');
 const nameAddCardInput = formAddCard.querySelector('#formAddCard__name');
 const imageAddCardInput = formAddCard.querySelector('#formAddCard__image');
 
+const openImagePopup = document.querySelector('.openImagePopup');
+const openPopupImageBig = openImagePopup.querySelector('.openImagePopup__image-big');
+const openPopupImageTitle = openImagePopup.querySelector('.openImagePopup__title');
+const openPopupImageClose = openImagePopup.querySelector('.openImagePopup__close-icon');
+
+
 const initialCards = [
     {
       name: 'Архыз',
@@ -48,11 +54,30 @@ const cardsContainer = document.querySelector('.elements');
 function addCard(cardTitle, cardImage) {
     const cardTemplate = document.querySelector('#element-template').content;
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+
     cardElement.querySelector('.element__image').src = cardImage;
     cardElement.querySelector('.element__title').textContent = cardTitle;
   
-    cardsContainer.append(cardElement);
+    cardElement.querySelector('.element__like').addEventListener('click', function (evt) {
+        evt.target.classList.toggle('element__like_active');
+      });
+
+    cardElement.querySelector('.element__delete').addEventListener('click',  () => {
+        cardElement.remove();
+    });
+
+    cardElement.querySelector('.element__image').addEventListener('click', () => {
+        openImagePopup.classList.add('openImagePopup_opened'); 
+        openPopupImageBig.src = cardImage;
+        openPopupImageTitle.textContent = cardTitle;
+    });
+    
+    cardsContainer.prepend(cardElement);    
 }
+
+openPopupImageClose.addEventListener('click', () => {
+    openImagePopup.classList.remove('openImagePopup_opened');
+});
 
 initialCards.forEach(function (item) {
     addCard(item.name, item.link);
@@ -83,20 +108,7 @@ popupCloseButton.addEventListener('click', closePopup);
 function formAddCardSubmitHandler (evt) {
     evt.preventDefault(); 
     
-    initialCards.unshift({
-        name: nameAddCardInput.value,
-        link: imageAddCardInput.value
-    });
-
-    const element = document.querySelectorAll('.element');
-    console.log(element);
-    for(let i = 0; i < element.length; i++){
-        element[i].remove();
-    }
-
-    initialCards.forEach(function (item) {
-        addCard(item.name, item.link);
-    })
+    addCard(nameAddCardInput.value, imageAddCardInput.value);
 
     closeAddCardPopup();
 }
