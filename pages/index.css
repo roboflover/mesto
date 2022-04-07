@@ -33,7 +33,10 @@
 @import url(../blocks/addCardPopup/_opened/addCardPopup_opened.css);
 @import url(../blocks/addCardPopup/__close-icon/addCardPopup__close-icon.css);
 @import url(../blocks/addCardPopup/__title/addCardPopup__title.css);
+
 @import url(../blocks/formAddCard/formAddCard.css);
+@import url(../blocks/form/__input/formAddCard__input.css);
+@import url(../blocks/form/__button/formAddCard__button.css);
 
 @import url(../blocks/openImagePopup/openImagePopup.css);
 @import url(../blocks/openImagePopup/_opened/openImagePopup_opened.css);
