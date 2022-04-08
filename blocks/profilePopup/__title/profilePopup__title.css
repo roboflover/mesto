@@ -1,4 +1,4 @@
-.popup__title {
+.profilePopup__title {
   margin: 42px 0 0 22px;
   text-align: left;
   font-style: normal;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 650px) {
-  .popup__title {
+  .profilePopup__title {
     margin-top: 42px;
     margin-left: 36px;
 

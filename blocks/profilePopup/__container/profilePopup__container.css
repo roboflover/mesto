@@ -1,4 +1,4 @@
-.popup__container {
+.profilePopup__container {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 650px) {
-  .popup__container {
+  .profilePopup__container {
     width: 430px;
   }
 }

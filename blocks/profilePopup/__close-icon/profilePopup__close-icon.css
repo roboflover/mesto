@@ -1,4 +1,4 @@
-.popup__close-icon {
+.profilePopup__close-icon {
   display: flex;
   margin-top: -36px;
   margin-left: 262px;
@@ -13,12 +13,12 @@
   background-color: transparent;
 }
 
-.popup__close-icon:hover {
+.profilePopup__close-icon:hover {
   opacity: 0.6;
 }
 
 @media screen and (min-width: 650px) {
-  .popup__close-icon {
+  .profilePopup__close-icon {
     margin-top: -40px;
     margin-left: 438px;
     width: 32px;
