@@ -1,7 +1,9 @@
-.addCardPopup__close-icon {
+.open-image-popup__close-icon {
   display: flex;
-  margin-top: -36px;
-  margin-left: 262px;
+  margin-bottom: 16px;
+  margin-right: 0;
+  align-self: flex-end;
+
   width: 20px;
   height: 20px;
   background-image: url(../../../images/popup/close-icon.svg);
@@ -13,14 +15,16 @@
   background-color: transparent;
 }
 
-.addCardPopup__close-icon:hover {
+.open-image-popup__close-icon:hover {
   opacity: 0.6;
 }
 
 @media screen and (min-width: 650px) {
-  .addCardPopup__close-icon {
-    margin-top: -40px;
-    margin-left: 438px;
+  .open-image-popup__close-icon {
+    margin-bottom: 8px;
+    margin-right: calc(-32px - 8px);
+    align-self: flex-end;
+
     width: 32px;
     height: 32px;
     background-image: url(../../../images/popup/close-icon-big.svg);

@@ -1,9 +1,7 @@
-.openImagePopup__close-icon {
+.add-card-popup__close-icon {
   display: flex;
-  margin-bottom: 16px;
-  margin-right: 0;
-  align-self: flex-end;
-
+  margin-top: -36px;
+  margin-left: 262px;
   width: 20px;
   height: 20px;
   background-image: url(../../../images/popup/close-icon.svg);
@@ -15,16 +13,14 @@
   background-color: transparent;
 }
 
-.openImagePopup__close-icon:hover {
+.add-card-popup__close-icon:hover {
   opacity: 0.6;
 }
 
 @media screen and (min-width: 650px) {
-  .openImagePopup__close-icon {
-    margin-bottom: 8px;
-    margin-right: calc(-32px - 8px);
-    align-self: flex-end;
-
+  .add-card-popup__close-icon {
+    margin-top: -40px;
+    margin-left: 438px;
     width: 32px;
     height: 32px;
     background-image: url(../../../images/popup/close-icon-big.svg);
