@@ -1,4 +1,5 @@
 .form__button {
+  align-self: center;
   width: 238px;
   height: 46px;
   margin-top: 45px;
@@ -9,10 +10,9 @@
   color: white;
   cursor: pointer;
 
-  font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 18px;
+  line-height: 22px;
   text-align: center;
 }
 
@@ -22,12 +22,11 @@
 
 @media screen and (min-width: 650px) {
   .form__button {
-    margin-top: 48px;
+    margin-top: 31.34px;
     margin-bottom: 37px;
     width: 358px;
     height: 50px;
 
-    font-size: 18px;
-    line-height: 22px;
+
   }
 }

@@ -52,7 +52,7 @@
       </article>
     </template>
 
-    <section class="profile-popup">
+    <section class="profile-popup" id="profile">
       <div class="profile-popup__container">
         <button
           aria-label="close"
@@ -60,27 +60,38 @@
           class="profile-popup__close-icon"
         ></button>
         <h2 class="profile-popup__title">Редактировать профиль</h2>
-        <form class="form" name="mesto-form">
+        <form class="form" name="mesto-form" id="profile-form" novalidate>
           <input
             type="text"
             class="form__input"
-            id="form__name"
+            id="profile-name-input"
             value=""
             placeholder=""
+            minlength="2"
+            maxlength="40"
+            required
           />
+          <span class="form__input-error" id="profile-name-input-error"></span>
           <input
             type="text"
             class="form__input"
-            id="form__caption"
+            id="profile-caption-input"
             value=""
             placeholder=""
+            minlength="2"
+            maxlength="200"
+            required
           />
+          <span
+            class="form__input-error"
+            id="profile-caption-input-error"
+          ></span>
           <button class="form__button" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
 
-    <section class="add-card-popup">
+    <section class="add-card-popup" id="add-card">
       <div class="add-card-popup__container">
         <button
           aria-label="close"
@@ -88,27 +99,36 @@
           class="add-card-popup__close-icon"
         ></button>
         <h2 class="add-card-popup__title">Новое место</h2>
-        <form class="formAddCard" name="mesto-form">
+        <form class="form" name="mesto-form" id="add-card-form" novalidate>
           <input
             type="text"
-            class="formAddCard__input"
-            id="formAddCard__name"
+            class="form__input"
+            id="add-card-name-input"
             value=""
             placeholder="Название"
+            minlength="2"
+            maxlength="30"
+            required
           />
+          <span class="form__input-error" id="add-card-name-input-error"></span>
           <input
             type="url"
-            class="formAddCard__input"
-            id="formAddCard__image"
+            class="form__input"
+            id="add-card-image-input"
             value=""
             placeholder="Ссылка на картинку"
+            required
           />
-          <button class="formAddCard__button" type="submit">Сохранить</button>
+          <span
+            class="form__input-error"
+            id="add-card-image-input-error"
+          ></span>
+          <button class="form__button" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
 
-    <section class="open-image-popup">
+    <section class="open-image-popup" id="open-image">
       <div class="open-image-popup__container">
         <button
           aria-label="close"
@@ -123,7 +143,9 @@
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
+
     <script src="scripts/cards.js"></script>
     <script src="scripts/index.js"></script>
+    <script src="scripts/validate.js"></script>
   </body>
 </html>
