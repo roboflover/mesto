@@ -47,28 +47,51 @@ function createCard(card) {
     elementImage.addEventListener('click', () => {
         imageBig.src = card.link;
         imageBigTitle.textContent = card.name;
+        imageBig.alt = card.name;
         openPopup(imageBigPopup);
       });
-    
+
     return cardElement;
-    //cardsContainer.prepend(cardElement);    
 }
 
 function openPopup(popup) { 
-  escapeClosePopup(popup)
+  extraClosePopup(popup)  
   popup.classList.add('popup_opened');    
 }
 
 function closePopup(popup) {
+  removeExtraClosePopup(popup)
   popup.classList.remove('popup_opened');
+
 }
 
-function escapeClosePopup(popup){
+function removeExtraClosePopup(popup) {
+  document.removeEventListener('keydown', (evt) => {
+    if (evt.code == 'Escape') {
+      closePopup(popup);
+    }
+  });
+
+  popup.removeEventListener('click', (evt) => {    
+    if(evt.target.classList[0] === popup.classList[0])  {
+      closePopup(popup);
+    }
+  }); 
+  
+}
+
+function extraClosePopup(popup){
   document.addEventListener('keydown', (evt) => {
     if (evt.code == 'Escape') {
       closePopup(popup);
     }
   });
+
+  popup.addEventListener('click', (evt) => {    
+    if(evt.target.classList[0] === popup.classList[0])  {
+      closePopup(popup);
+    }
+  }); 
 }
 
 function renderCard(card) {
@@ -108,24 +131,17 @@ function addCardFormSubmitHandler (evt) {
 imageBigClose.addEventListener('click', () => {
   closePopup(imageBigPopup);
 });
-
 profileEditBtn.addEventListener('click', openEditProfilePopup);
 profileForm.addEventListener('submit', profileFormSubmitHandler);
 profileCloseBtn.addEventListener('click', () => {
   closePopup(profilePopup);
 });
 cardAddBtn.addEventListener('click', () => {
-  openPopup(cardPopup)
+  openPopup(cardPopup);
 });
 addCardForm.addEventListener('submit', addCardFormSubmitHandler);
 cardCloseBtn.addEventListener('click', () => {
   closePopup(cardPopup);
 });
-
-// addCardForm.addEventListener('keydown', (evt) => {
-//   if (evt.code == 'Escape') {
-//     closePopup(cardPopup);
-//   }
-// });
 
 

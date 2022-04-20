@@ -2,7 +2,8 @@
     align-self: center;
     margin-top: 5px;
     width: 238px;
-  
+    min-height: 30px;
+
     text-align: left;
     font-style: normal;
     font-weight: 400;

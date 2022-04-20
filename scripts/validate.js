@@ -1,3 +1,12 @@
+const selectorObj = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__button',
+  inactiveButtonClass: 'form__button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error_active'
+}
+
 const showInputError = (selectorObj, formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(selectorObj.inputErrorClass);
@@ -50,19 +59,14 @@ const toggleButtonState = (selectorObj, inputList, buttonElement) => {
 function enableValidation(selectorObj){
     const formList = Array.from(document.querySelectorAll(selectorObj.formSelector));
     formList.forEach((formElement) => {
-      formElement.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-      });
+      const buttonElement = formElement.querySelector(selectorObj.submitButtonSelector);
+      buttonElement.classList.add(selectorObj.inactiveButtonClass);
       setEventListeners(selectorObj, formElement);
     });
   };  
 
-enableValidation({
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__button',
-    inactiveButtonClass: 'form__button_inactive',
-    inputErrorClass: 'form__input_type_error',
-    errorClass: 'form__input-error_active'
-  }); 
+cardAddBtn.addEventListener('click', function(){
+  enableValidation(selectorObj); 
+} )
 
+enableValidation(selectorObj); 
