@@ -1,12 +1,3 @@
-const selectorObj = {
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__button',
-  inactiveButtonClass: 'form__button_inactive',
-  inputErrorClass: 'form__input_type_error',
-  errorClass: 'form__input-error_active'
-}
-
 const showInputError = (selectorObj, formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(selectorObj.inputErrorClass);
@@ -50,8 +41,10 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (selectorObj, inputList, buttonElement) => {
     if (hasInvalidInput(inputList)) {
       buttonElement.classList.add(selectorObj.inactiveButtonClass);
+      buttonElement.setAttribute('disabled', true);
     } else {
       buttonElement.classList.remove(selectorObj.inactiveButtonClass);
+      buttonElement.removeAttribute('disabled', true);
     }
   }; 
   
@@ -65,8 +58,11 @@ function enableValidation(selectorObj){
     });
   };  
 
-cardAddBtn.addEventListener('click', function(){
-  enableValidation(selectorObj); 
-} )
-
-enableValidation(selectorObj); 
+enableValidation({
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__button',
+  inactiveButtonClass: 'form__button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error_active'
+}); 
