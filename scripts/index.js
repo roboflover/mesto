@@ -116,7 +116,6 @@ function addCardFormSubmitHandler (evt) {
     const buttonElement = evt.target.querySelector('.form__button');
     buttonElement.classList.add('form__button_inactive');
     buttonElement.setAttribute('disabled', true);
-    console.log(buttonElement);
 }
 
 imageBigClose.addEventListener('click', () => {
