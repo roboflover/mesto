@@ -56,24 +56,26 @@ function createCard(card) {
 
 function openPopup(popup) { 
   popup.classList.add('popup_opened');    
-  popup.addEventListener('click', (evt) => {    
-    if(evt.target.classList[0] === popup.classList[0])  {
-      closePopup(popup);
-    }
-  }); 
+  popup.addEventListener('click', listenersLogic);   
   document.addEventListener('keydown', escapeClosePopup);
 }
 
-
-
 function closePopup(popup) {
   document.removeEventListener('keydown', escapeClosePopup);
+  popup.removeEventListener('click', listenersLogic);   
   popup.classList.remove('popup_opened');
+}
+
+function listenersLogic(evt) {
+  const popupOpened = document.querySelector('.popup_opened')
+  if(evt.target.classList[0] === popupOpened.classList[0])  {
+    closePopup(popupOpened);
+  }
 }
 
 function escapeClosePopup(evt) {
   if (evt.code == 'Escape') {
-    const popupOpened = document.querySelector('.popup_opened')
+    const popupOpened = document.querySelector('.popup_opened');
     closePopup(popupOpened);
   }
 }  
