@@ -56,17 +56,17 @@ function createCard(card) {
 
 function openPopup(popup) { 
   popup.classList.add('popup_opened');    
-  popup.addEventListener('click', listenersLogic);   
+  popup.addEventListener('click', overlayClosePopup);   
   document.addEventListener('keydown', escapeClosePopup);
 }
 
 function closePopup(popup) {
   document.removeEventListener('keydown', escapeClosePopup);
-  popup.removeEventListener('click', listenersLogic);   
+  popup.removeEventListener('click', overlayClosePopup);   
   popup.classList.remove('popup_opened');
 }
 
-function listenersLogic(evt) {
+function overlayClosePopup(evt) {
   const popupOpened = document.querySelector('.popup_opened')
   if(evt.target.classList[0] === popupOpened.classList[0])  {
     closePopup(popupOpened);
