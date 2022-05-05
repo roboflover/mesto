@@ -52,19 +52,6 @@ const addCardFormSubmitHandler = (evt) => {
      closePopup(cardPopup)
 }
 
-(function addCardSetEventListeners() {
-
-    cardAddBtn.addEventListener('click', () => {
-      openPopup(cardPopup);
-    });
-    cardElement.addEventListener('submit', addCardFormSubmitHandler);
-    cardCloseBtn.addEventListener('click', () => {
-      closePopup(cardPopup);
-    });  
-
-} )();
-
-
 initCards.forEach((data) => {
   creatingСardLayout(data)
 });
@@ -80,37 +67,6 @@ const formList = Array.from(document.querySelectorAll(selectorFormObj.formSelect
     const formValidator = new FormValidator(selectorFormObj, formElement);
     formValidator.enableValidation();
 }); 
-
-export function setEventListeners(element) {
-
-  element.querySelector('.element__like').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__like_active');
-  });
-
-  element.querySelector('.element__delete').addEventListener('click',  () => {
-    element.remove();
-  });
-
-  cardAddBtn.addEventListener('click', () => {
-    openPopup(cardPopup);
-   });
-
-}
-
-export function bigImageOpen (elementImage, name, link) {
-  
-  elementImage.addEventListener('click', () => {
-    imageBig.src = link;
-    imageBigTitle.textContent = name;
-    imageBig.alt = name;
-    openPopup(imageBigPopup);
-  });
-
-}
-
-imageBigClose.addEventListener('click', () => {
-    closePopup(imageBigPopup);
-  });
 
 function openPopup(popup) { 
   popup.classList.add('popup_opened');    
@@ -152,6 +108,44 @@ function openEditProfilePopup() {
     openPopup(profilePopup);    
 }
 
+export function bigImageOpen (elementImage, name, link) {
+  
+  elementImage.addEventListener('click', () => {
+    imageBig.src = link;
+    imageBigTitle.textContent = name;
+    imageBig.alt = name;
+    openPopup(imageBigPopup);
+  });
+
+}
+
+export function setEventListeners(element) {
+
+  element.querySelector('.element__like').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('element__like_active');
+  });
+
+  element.querySelector('.element__delete').addEventListener('click',  () => {
+    element.remove();
+  });
+
+  cardAddBtn.addEventListener('click', () => {
+    openPopup(cardPopup);
+   });
+
+}
+
+cardAddBtn.addEventListener('click', () => {
+  openPopup(cardPopup);
+});
+cardElement.addEventListener('submit', addCardFormSubmitHandler);
+cardCloseBtn.addEventListener('click', () => {
+  closePopup(cardPopup);
+});  
+
+imageBigClose.addEventListener('click', () => {
+  closePopup(imageBigPopup);
+});
 profileEditBtn.addEventListener('click', openEditProfilePopup);
 profileForm.addEventListener('submit', profileFormSubmitHandler);
 profileCloseBtn.addEventListener('click', () => {
