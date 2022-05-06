@@ -7,22 +7,22 @@ export class FormValidator {
       }
 
     _setEventListeners = () => {
-        this._toggleButtonState(this._inputList, this._buttonElement);
+        this._toggleButtonState();
         this._inputList.forEach((inputElement) => {
           inputElement.addEventListener('input', function () {
-            this._toggleButtonState(this._inputList, this._buttonElement);   
+            this._toggleButtonState();   
             this._checkInputValidity(inputElement);
           }.bind(this));
         });
       };
 
-    _toggleButtonState = (inputList, buttonElement) => {
-        if (this._hasInvalidInput(inputList)) {
-            buttonElement.classList.add(this._selectorObj.inactiveButtonClass);
-            buttonElement.setAttribute('disabled', true);
+    _toggleButtonState = () => {
+        if (this._hasInvalidInput(this._inputList)) {
+          this._buttonElement.classList.add(this._selectorObj.inactiveButtonClass);
+          this._buttonElement.setAttribute('disabled', true);
         } else {
-            buttonElement.classList.remove(this._selectorObj.inactiveButtonClass);
-            buttonElement.removeAttribute('disabled', true);
+          this._buttonElement.classList.remove(this._selectorObj.inactiveButtonClass);
+          this._buttonElement.removeAttribute('disabled', true);
         }
     }; 
 
@@ -57,6 +57,5 @@ export class FormValidator {
 
     enableValidation () {
         this._setEventListeners();
-        this._buttonElement.classList.add(this._selectorObj.inactiveButtonClass);
     }     
 }
