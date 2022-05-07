@@ -6,17 +6,17 @@ export class FormValidator {
         this._buttonElement = this._formElement.querySelector(this._selectorObj.submitButtonSelector);
       }
 
-    _setEventListeners = () => {
-        this._toggleButtonState();
+    _setEventListeners() {
+        this.toggleButtonState();
         this._inputList.forEach((inputElement) => {
           inputElement.addEventListener('input', function () {
-            this._toggleButtonState();   
+            this.toggleButtonState();   
             this._checkInputValidity(inputElement);
           }.bind(this));
         });
       };
 
-    _toggleButtonState = () => {
+    toggleButtonState() {
         if (this._hasInvalidInput(this._inputList)) {
           this._buttonElement.classList.add(this._selectorObj.inactiveButtonClass);
           this._buttonElement.setAttribute('disabled', true);
@@ -26,14 +26,14 @@ export class FormValidator {
         }
     }; 
 
-    _hasInvalidInput = (inputList) => {
+    _hasInvalidInput(inputList)  {
         return inputList.some((inputElement) => {
     
           return !inputElement.validity.valid;
         })
       };  
 
-    _checkInputValidity = (inputElement) => {
+    _checkInputValidity(inputElement) {
         if (!inputElement.validity.valid) {
           this._showInputError(inputElement, inputElement.validationMessage);
         } else {
@@ -41,14 +41,14 @@ export class FormValidator {
         }
       };
 
-    _showInputError = (inputElement, errorMessage) => {
+    _showInputError(inputElement, errorMessage) {
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.add(this._selectorObj.inputErrorClass);
         errorElement.textContent = errorMessage;
         errorElement.classList.add(this._selectorObj.errorClass);
     }
     
-    _hideInputError = (inputElement) => {
+    _hideInputError(inputElement) {
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(this._selectorObj.inputErrorClass);
         errorElement.classList.remove(this._selectorObj.errorClass);
