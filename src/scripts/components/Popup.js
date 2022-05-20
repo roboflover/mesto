@@ -33,9 +33,7 @@ export default class Popup {
             {
             this.close();
             }            
-        }); 
-        
-        
+        });         
     }
 }
 

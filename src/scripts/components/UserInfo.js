@@ -1,5 +1,3 @@
-import Popup from './Popup.js';
-
 export default class UserInfo {
     constructor( selectorName, selectorCaption ) {
         this._selectorName = selectorName;
