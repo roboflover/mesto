@@ -2,7 +2,6 @@ import '../pages/index.css';
 import { Card } from './components/Card.js';
 import { FormValidator } from './components/FormValidator.js'
 import Section from './components/Section.js';
-import Popup from './components/Popup.js';
 import PopupWithImage from './components/PopupWithImage.js';
 import PopupWithForm from './components/PopupWithForm.js';
 import UserInfo from './components/UserInfo.js';
@@ -49,7 +48,7 @@ const addCardFormPopup = new PopupWithForm({
   });
 addCardFormPopup.setEventListeners();
 
-function formAddCardPopup(){
+function openAddCardPopup(){
   newCardValidation.toggleButtonState();
   addCardFormPopup.open();
 } 
@@ -67,7 +66,7 @@ const editFormPopup = new PopupWithForm({
 });
 editFormPopup.setEventListeners();
 
-function formProfilePopup() {
+function openProfilePopup() {
   
   const infoObj = userInfoProfile.getUserInfo()
   nameInput.value = infoObj.name;
@@ -76,8 +75,8 @@ function formProfilePopup() {
   editFormPopup.open();
 }
 
-profileEditBtn.addEventListener('click', formProfilePopup);
-cardAddBtn.addEventListener('click', formAddCardPopup);
+profileEditBtn.addEventListener('click', openProfilePopup);
+cardAddBtn.addEventListener('click', openAddCardPopup);
 
 function handleCardClick(name, link) {
   popupImage.open(name, link);
