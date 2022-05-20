@@ -1,42 +1,27 @@
 import '../pages/index.css';
 import { Card } from './components/Card.js';
 import { FormValidator } from './components/FormValidator.js'
-import { initialCards as initCards }   from './components/cards.js';
 import Section from './components/Section.js';
 import Popup from './components/Popup.js';
 import PopupWithImage from './components/PopupWithImage.js';
 import PopupWithForm from './components/PopupWithForm.js';
 import UserInfo from './components/UserInfo.js';
 
-const formObj = {
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__button',
-  inactiveButtonClass: 'form__button_inactive',
-  inputErrorClass: 'form__input_type_error',
-  errorClass: 'form__input-error_active',
-}
-
-const сardObj = {
-  elementSelector: '#element-template', 
-  cardsContainer: '.elements',
-  cardImageClass: '.element__image'
-}
-
-const popupObj = {
-  addCardClass: '.add-card-popup', 
-  openImageClass: '.open-image-popup',
-  profileClass: '.profile-popup',
-  profileForm: '#profile-form'
-}
-
 import {
   cardAddBtn, profileName, profileCaption, profileEditBtn, 
-  nameInput, jobInput, formEditProfile, formAddCard
+  nameInput, jobInput, formEditProfile, formAddCard, 
+  formObj, сardObj, popupObj, initCards
 } from './utils/constants.js'
 
-const popup = new Popup(popupObj.openImageClass);
-popup.setEventListeners(); 
+
+const popupImage = new PopupWithImage(popupObj.openImageClass);
+popupImage.setEventListeners();
+
+function createCard(item) {
+  const card = new Card( item, сardObj.elementSelector, handleCardClick );
+  const cardElement = card.generateCard();
+  return cardElement
+}
 
 const profileValidation = new FormValidator(formObj, formEditProfile);
 const newCardValidation = new FormValidator(formObj, formAddCard);
@@ -46,8 +31,7 @@ newCardValidation.enableValidation();
 const sectionCard = new Section({
   data: initCards,
   renderer: (item) => {
-    const card = new Card( item, сardObj.elementSelector, handleCardClick );
-    const cardElement = card.generateCard();
+    const cardElement = createCard(item);
     sectionCard.addItem(cardElement);
   }}, сardObj.cardsContainer);
 sectionCard.renderItems();
@@ -58,8 +42,7 @@ const addCardFormPopup = new PopupWithForm({
     handleFormSubmit: (input) => { 
       const name = input.text0;
       const link = input.text1;
-      const card = new Card( { name: name, link: link }, сardObj.elementSelector, handleCardClick );
-      const cardElement = card.generateCard();
+      const cardElement = createCard({name, link});
       sectionCard.addItem(cardElement);
       addCardFormPopup.close(); 
     }
@@ -97,10 +80,7 @@ profileEditBtn.addEventListener('click', formProfilePopup);
 cardAddBtn.addEventListener('click', formAddCardPopup);
 
 function handleCardClick(name, link) {
-  const popupImage = new PopupWithImage( name, link );
-  popupImage.open();
-  const imageBigPopup = document.querySelector('.open-image-popup');
-  imageBigPopup.classList.add('popup_opened');    
+  popupImage.open(name, link);
 }
 
 
