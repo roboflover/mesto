@@ -1,9 +1,0 @@
-.element__num-like {
-    margin-right: 20px;
-    margin-top: 3px;
-    color: #000000;
-    text-align: center;
-    /* grid-area: 'number'; */
-    grid-row: 2;
-    grid-column: 2;
-}
