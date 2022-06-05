@@ -1,5 +1,12 @@
 .element__card {
-  display: flex;
+  display: grid;
+  
+  /* grid-template-areas: 
+  "title like"
+  "title number"; */
+  
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(2, auto);
   width: 282px;
   flex-direction: row;
   justify-content: space-between;

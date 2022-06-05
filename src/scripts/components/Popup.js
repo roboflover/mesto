@@ -27,10 +27,10 @@ export default class Popup {
         this._handleEscClose();
        
         this._popup.addEventListener('mousedown', (evt) => {
-            
             if (evt.target.classList.contains('popup') 
             || evt.target.classList.contains('popup__close'))
             {
+               
             this.close();
             }            
         });         
