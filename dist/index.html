@@ -136,7 +136,7 @@
             class="form__input-error"
             id="add-card-image-input-error"
           ></span>
-          <button class="form__button" type="submit">Сохранить</button>
+          <button class="form__button" type="submit">Создать</button>
         </form>
       </div>
     </section>
@@ -180,6 +180,25 @@
             id="add-card-image-input-error"
           ></span>
           <button class="form__button" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="delete-popup popup">
+      <div class="delete-popup__container">
+        <button
+          aria-label="close"
+          type="button"
+          class="popup__close delete-popup__close-icon"
+        ></button>
+        <h2 class="delete-popup__title">Вы уверены?</h2>
+        <form
+          class="form form-delete"
+          name="mesto-form"
+          id="delete-form"
+          novalidate
+        >
+        <button class="form__button" type="submit">Удалить</button>
         </form>
       </div>
     </section>

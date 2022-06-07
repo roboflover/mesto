@@ -10,6 +10,7 @@ export const profilePopup = document.querySelector('.profile-popup');
 export const profileEditBtn = document.querySelector('.profile__edit-button');
 
 export const avatarPopup = document.querySelector('.edit-avatar-popup'); 
+export const deletePopup = document.querySelector('.delete-popup'); 
 
 export const profileForm = profilePopup.querySelector('#profile-form');
 export const nameInput = profileForm.querySelector('#profile-name-input');
@@ -18,8 +19,11 @@ export const jobInput = profileForm.querySelector('#profile-caption-input');
 export const formEditProfile = profilePopup.querySelector('.form-edit-profile');
 export const formAddCard = cardPopup.querySelector('.form-add-card');
 export const formAvatar  = avatarPopup.querySelector('.form-avatar');
+export const formDelete  = deletePopup.querySelector('.form-delete');
 
 export const formButton = formEditProfile.querySelector('.form__button');
+
+export const isDeleteCard = false;
 
 export const formObj = {
     formSelector: '.form',
@@ -38,12 +42,17 @@ export const сardObj = {
   
 export const popupObj = {
     addCardClass: '.add-card-popup', 
+    deleteClass: '.delete-popup', 
     openImageClass: '.open-image-popup',
     profileClass: '.profile-popup',
     profileForm: '#profile-form',
     avatarClass: '.edit-avatar-popup',
 
   }
+
+export const deleteType = 'delete';
+export const formaType = 'forma';
+export const formaCard = 'card';
 
 export const headerAvatar = document.querySelector('.profile__avatar');
 export const headerAvaContainer = document.querySelector('.profile__ava-container');

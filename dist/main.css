@@ -1276,6 +1276,101 @@ template {
   }
 }
 
+/*!******************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/delete-popup/delete-popup.css ***!
+  \******************************************************************************************************************************************************************/
+.delete-popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/delete-popup/__container/delete-popup__container.css ***!
+  \*****************************************************************************************************************************************************************************************/
+.delete-popup__container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 282px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 650px) {
+  .delete-popup__container {
+    width: 430px;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/delete-popup/__close-icon/delete-popup__close-icon.css ***!
+  \*******************************************************************************************************************************************************************************************/
+.delete-popup__close-icon {
+  display: flex;
+  margin-top: -36px;
+  margin-left: 262px;
+  width: 20px;
+  height: 20px;
+  background-image: url(622e8cdafa2222aa7c54.svg);
+  cursor: pointer;
+  z-index: 10;
+
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.delete-popup__close-icon:hover {
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 650px) {
+  .delete-popup__close-icon {
+    margin-top: -40px;
+    margin-left: 438px;
+    width: 32px;
+    height: 32px;
+    background-image: url(039f1f5203f653b4bacd.svg);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/delete-popup/__title/delete-popup__title.css ***!
+  \*********************************************************************************************************************************************************************************/
+.delete-popup__title {
+  margin: 42px 0 0 22px;
+  text-align: left;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 22px;
+  color: black;
+}
+
+@media screen and (min-width: 650px) {
+  .delete-popup__title {
+    margin-top: 42px;
+    margin-left: 36px;
+
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
 /*!**************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/open-image-popup/open-image-popup.css ***!
   \**************************************************************************************************************************************************************************/

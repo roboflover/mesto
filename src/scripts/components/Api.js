@@ -85,7 +85,9 @@ class Api {
         .then(handleResponse)
     }
 
-
+    getAllNeededData() {
+        return Promise.all([this.getInitialCards(), this.UserInfo()])
+      }
 
 
 

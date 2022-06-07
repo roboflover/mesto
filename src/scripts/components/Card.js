@@ -2,7 +2,7 @@ export class Card {
 
     constructor( {name, link, _id, owner, likes}, 
       templateSelector, 
-      handleCardClick, handleDeleteCard, handleLikeCard, handleDislikeCard ) {
+      handleCardClick, handleDeleteCard, handleLikeCard, handleDislikeCard, userId) {
       this._name = name;
       this._link = link;
       this._id = _id;
@@ -14,6 +14,7 @@ export class Card {
       this._handleLikeCard = handleLikeCard;
       this._handleDislikeCard = handleDislikeCard;
       this._switchLike = false;
+      this._userId = userId
     }
 
     _getTemplate() {
@@ -37,8 +38,7 @@ export class Card {
         });      
 
         this._element.querySelector('.element__delete').addEventListener('click',  () => {
-        this._handleDeleteCard( this._id )
-        this._element.remove();
+          this._handleDeleteCard( this )
       });
 
       this._cardImage.addEventListener('click', () => {
@@ -61,6 +61,7 @@ export class Card {
 
       this._likeSelector = this._element.querySelector('.element__like');
         this._likes.forEach(element => {
+          console.log(this._userId);
           if(element._id === '139188094b3fc7ccb55a5d48'){
             this._switchLike = true;
             this._likeSelector.classList.toggle('element__like_active');

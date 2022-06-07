@@ -37,6 +37,10 @@
 @import url(../blocks/add-card-popup/__container/add-card-popup__container.css);
 @import url(../blocks/add-card-popup/__close-icon/add-card-popup__close-icon.css);
 @import url(../blocks/add-card-popup/__title/add-card-popup__title.css);
+@import url(../blocks/delete-popup/delete-popup.css);
+@import url(../blocks/delete-popup/__container/delete-popup__container.css);
+@import url(../blocks/delete-popup/__close-icon/delete-popup__close-icon.css);
+@import url(../blocks/delete-popup/__title/delete-popup__title.css);
 @import url(../blocks/open-image-popup/open-image-popup.css);
 @import url(../blocks/open-image-popup/__image-big/open-image-popup__image-big.css);
 @import url(../blocks/open-image-popup/__close-icon/open-image-popup__close-icon.css);
