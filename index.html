@@ -7,15 +7,15 @@
   <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
   <body class="page">
     <header class="header">
-      <div class="header__logo">
+      <div class="header__logo"></div>
     </header>
 
     <main>
       <section class="profile">
-          <a href="#" class="profile__overlay">
-            <div class="profile__ava-container"></div>
-            <img class="profile__avatar ">
-          </a>
+        <a href="#" class="profile__overlay">
+          <div class="profile__ava-container"></div>
+          <img class="profile__avatar" />
+        </a>
         <div class="profile__info">
           <h1 class="profile__name"></h1>
           <button
@@ -127,15 +127,11 @@
           <input
             type="url"
             class="form__input"
-            id="add-card-image-input"
             value=""
             placeholder="Ссылка на картинку"
             required
           />
-          <span
-            class="form__input-error"
-            id="add-card-image-input-error"
-          ></span>
+          <span class="form__input-error"></span>
           <button class="form__button" type="submit">Создать</button>
         </form>
       </div>
@@ -170,15 +166,11 @@
           <input
             type="url"
             class="form__input"
-            id="add-card-image-input"
             value=""
             placeholder="Ссылка на картинку"
             required
           />
-          <span
-            class="form__input-error"
-            id="add-card-image-input-error"
-          ></span>
+          <span class="form__input-error"></span>
           <button class="form__button" type="submit">Сохранить</button>
         </form>
       </div>
@@ -198,7 +190,7 @@
           id="delete-form"
           novalidate
         >
-        <button class="form__button" type="submit">Удалить</button>
+          <button class="form__button" type="submit">Удалить</button>
         </form>
       </div>
     </section>
