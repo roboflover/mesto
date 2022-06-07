@@ -49,7 +49,6 @@ export default class Popup {
         }
         
         if(state === 'normal' && type === 'card') {  
-        console.log('создание карты')
         button.classList.add(inactiveButtonClass);
         button.removeAttribute('disabled');
         button.textContent = 'Создание...';   

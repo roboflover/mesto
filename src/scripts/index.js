@@ -16,6 +16,9 @@ import {
   headerAvatar, headerAvaContainer, deleteType, formaType, formDelete, formaCard,
 } from './utils/constants.js'
 
+const profileClass = popupObj.profileClass;
+const avatarClass = popupObj.avatarClass;
+
 headerAvatar.src = 'https://i.pinimg.com/736x/54/ee/27/54ee2732c224d39ee86a79aeb3b9fb20.jpg';
 
 const popupImage = new PopupWithImage(popupObj.openImageClass);
@@ -40,12 +43,6 @@ api.getInitialCards()
     sectionCard.renderItems();
   })
 
-api.UserInfo()
-  .then(data => {
-    profileName.textContent = data.name
-    profileCaption.textContent = data.about
-  })
-
 function createCard(item) {
   const card = new Card( item, сardObj.elementSelector, handleCardClick, handleDeleteCard, handleLikeCard, handleDislikeCard, userId);
   const cardElement = card.generateCard();
@@ -67,6 +64,42 @@ const handleDislikeCard = (item) => {
       number.textContent = res.likes.length;
   })
 }
+
+api.UserInfo()
+  .then(data => {
+    userInfoProfile.setUserInfo( data.name, data.about, data.avatar );
+  })
+
+const userInfoProfile = new UserInfo( profileName, profileCaption, profileAvatar )
+
+const editFormPopup = new PopupWithForm({
+  selector: profileClass, 
+  handleFormSubmit: (input) => { 
+    input.name = input.text0;
+    input.about = input.text1;
+    editFormPopup.handleSubmitButton('normal', formaType);
+    api.updateInfo(input)
+    .then((res) => {
+      userInfoProfile.setUserInfo(res.name, res.about);
+      editFormPopup.handleSubmitButton('then', formaType);
+    })
+    .finally(() => {
+      editFormPopup.handleSubmitButton('finally', formaType);
+      editFormPopup.close(); 
+    })    
+  }
+});
+
+editFormPopup.setEventListeners();
+
+function openProfilePopup() {
+  const infoObj = userInfoProfile.getUserInfo()
+  nameInput.value = infoObj.name;
+  jobInput.value = infoObj.caption; 
+  profileValidation.enableValidation();
+  editFormPopup.open();
+}
+
 
 const profileValidation = new FormValidator(formObj, formEditProfile);
 const newCardValidation = new FormValidator(formObj, formAddCard);
@@ -134,37 +167,6 @@ function openAddCardPopup(){
   addCardFormPopup.open();
 } 
 
-const userInfoProfile = new UserInfo(profileName, profileCaption)
-const profileClass = popupObj.profileClass;
-const avatarClass = popupObj.avatarClass;
-
-const editFormPopup = new PopupWithForm({
-  selector: profileClass, 
-  handleFormSubmit: (input) => { 
-    input.name = input.text0;
-    input.about = input.text1;
-    editFormPopup.handleSubmitButton('normal', formaType);
-    api.updateInfo(input)
-    .then((res) => {
-      userInfoProfile.setUserInfo(res.name, res.about);
-      editFormPopup.handleSubmitButton('then', formaType);
-    })
-    .finally(() => {
-      editFormPopup.handleSubmitButton('finally', formaType);
-      editFormPopup.close(); 
-    })    
-  }
-});
-
-editFormPopup.setEventListeners();
-
-function openProfilePopup() {
-  const infoObj = userInfoProfile.getUserInfo()
-  nameInput.value = infoObj.name;
-  jobInput.value = infoObj.caption; 
-  profileValidation.enableValidation();
-  editFormPopup.open();
-}
 
 function handleCardClick(name, link) {
   popupImage.open(name, link);
@@ -193,21 +195,14 @@ function openAvatarPopup() {
   editAvatarPopup.open();
 }
 
-api.UserInfo()
-.then((res) => {  
-  profileAvatar.src = res.avatar
-})    
-
 let userId;
-// Здесь должен обрабатываться Promise.all 
+
 api.getAllNeededData() 
-   .then(( [cards, userData] ) => {
-     //console.log(userData._id)
-     userInfo.setUserInfo(userData)
+   .then(( [cards, userData] ) => {    
+
      userId = userData._id
-     //console.log(userId)
-     sectionCard.renderItems(cards);
-     cardList.render(cards)
+     console.log(userId)
+
    })
 
 profileEditBtn.addEventListener('click', openProfilePopup);

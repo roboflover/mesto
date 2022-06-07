@@ -61,14 +61,13 @@ export class Card {
 
       this._likeSelector = this._element.querySelector('.element__like');
         this._likes.forEach(element => {
-          console.log(this._userId);
-          if(element._id === '139188094b3fc7ccb55a5d48'){
+          if(element._id === this._userId){
             this._switchLike = true;
             this._likeSelector.classList.toggle('element__like_active');
           }
         });
       
-      if( this._owner._id === '139188094b3fc7ccb55a5d48' ){
+      if( this._owner._id === this._userId ){
         this._element.querySelector('.element__delete').classList.add('element_delete-active')
       } 
 
