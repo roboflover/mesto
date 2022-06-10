@@ -65,7 +65,7 @@
         <h2 class="profile-popup__title">Редактировать профиль</h2>
         <form
           class="form form-edit-profile"
-          name="mesto-form"
+          name="form-edit-profile"
           id="profile-form"
           novalidate
         >
@@ -109,7 +109,7 @@
         <h2 class="add-card-popup__title">Новое место</h2>
         <form
           class="form form-add-card"
-          name="mesto-form"
+          name="form-add-card"
           id="add-card-form"
           novalidate
         >
@@ -127,11 +127,12 @@
           <input
             type="url"
             class="form__input"
+            id="add-card-url-input"
             value=""
             placeholder="Ссылка на картинку"
             required
           />
-          <span class="form__input-error"></span>
+          <span class="form__input-error" id="add-card-url-input-error"></span>
           <button class="form__button" type="submit">Создать</button>
         </form>
       </div>
@@ -159,18 +160,23 @@
         <h2 class="edit-avatar-popup__title">Обновить аватар</h2>
         <form
           class="form form-avatar"
-          name="mesto-form"
+          name="form-avatar"
           id="edit-avatar-form"
           novalidate
         >
           <input
             type="url"
+            name="url"
             class="form__input"
+            id="edit-avatar-url-input"
             value=""
             placeholder="Ссылка на картинку"
             required
           />
-          <span class="form__input-error"></span>
+          <span
+            class="form__input-error"
+            id="edit-avatar-url-input-error"
+          ></span>
           <button class="form__button" type="submit">Сохранить</button>
         </form>
       </div>
@@ -186,7 +192,7 @@
         <h2 class="delete-popup__title">Вы уверены?</h2>
         <form
           class="form form-delete"
-          name="mesto-form"
+          name="form-delete"
           id="delete-form"
           novalidate
         >
