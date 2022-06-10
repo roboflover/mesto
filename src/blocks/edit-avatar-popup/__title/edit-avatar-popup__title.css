@@ -1,0 +1,20 @@
+.edit-avatar-popup__title {
+    margin: 42px 0 0 22px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: black;
+  }
+  
+  @media screen and (min-width: 650px) {
+    .edit-avatar-popup__title {
+      margin-top: 42px;
+      margin-left: 36px;
+  
+      font-size: 24px;
+      line-height: 29px;
+    }
+  }
+  

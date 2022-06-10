@@ -15,13 +15,12 @@ export default class Popup {
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
-    _handleEscClose(){
-        document.addEventListener('keydown', (evt) => {
-            if (evt.code == 'Escape') {
+    _handleEscClose = (evt) => {
+        if(evt)        
+            if (evt.code === 'Escape') {
                 this.close();
-              }
-        });
-    }
+            }
+      }
 
     handleSubmitButton(state, type) {
         const inactiveButtonClass = 'form__button_inactive';
@@ -60,10 +59,7 @@ export default class Popup {
         }
       }
   
-
-
     setEventListeners(){
-        this._handleEscClose();
         this._popup.addEventListener('mousedown', (evt) => {
             if (evt.target.classList.contains('popup') 
             || evt.target.classList.contains('popup__close'))

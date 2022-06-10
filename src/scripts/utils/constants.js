@@ -18,8 +18,8 @@ export const jobInput = profileForm.querySelector('#profile-caption-input');
 
 export const formEditProfile = profilePopup.querySelector('.form-edit-profile');
 export const formAddCard = cardPopup.querySelector('.form-add-card');
-export const formAvatar  = avatarPopup.querySelector('.form-avatar');
-export const formDelete  = deletePopup.querySelector('.form-delete');
+export const formAvatar = avatarPopup.querySelector('.form-avatar');
+export const formDelete = deletePopup.querySelector('.form-delete');
 
 export const formButton = formEditProfile.querySelector('.form__button');
 

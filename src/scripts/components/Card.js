@@ -66,7 +66,7 @@ export class Card {
             this._likeSelector.classList.toggle('element__like_active');
           }
         });
-      
+
       if( this._owner._id === this._userId ){
         this._element.querySelector('.element__delete').classList.add('element_delete-active')
       } 
