@@ -25,28 +25,6 @@ export class Card {
       return cardElement;
       }
     
-    _setEventListeners() {
-      this._element.querySelector('.element__like').addEventListener('click', (evt) => {
-            evt.target.classList.toggle('element__like_active');
-            if (!this._switchLike){
-              this._handleLikeCard( this )
-              this._switchLike = true;
-            } else {
-              this._handleDislikeCard( this )
-              this._switchLike = false;
-            }            
-        });      
-
-        this._element.querySelector('.element__delete').addEventListener('click',  () => {
-          this._handleDeleteCard( this )
-      });
-
-      this._cardImage.addEventListener('click', () => {
-        this._handleCardClick(this._name, this._link);
-        });    
-    
-      }
-
     generateCard() {
 
       this._element = this._getTemplate();
@@ -68,12 +46,34 @@ export class Card {
         });
 
       if( this._owner._id === this._userId ){
-        this._element.querySelector('.element__delete').classList.add('element_delete-active')
+        this._element.querySelector('.element__delete').classList.add('element_delete-active');
       } 
 
       this._setEventListeners()
       
       return this._element;
                   
+      }
+  
+    _setEventListeners() {
+      this._element.querySelector('.element__like').addEventListener('click', (evt) => {
+            evt.target.classList.toggle('element__like_active');
+            if (!this._switchLike){
+              this._handleLikeCard( this )
+              this._switchLike = true;
+            } else {
+              this._handleDislikeCard( this )
+              this._switchLike = false;
+            }            
+        });      
+
+        this._element.querySelector('.element__delete').addEventListener('click',  () => {
+          this._handleDeleteCard( this )
+      });
+
+      this._cardImage.addEventListener('click', () => {
+        this._handleCardClick(this._name, this._link);
+        });    
+    
       }
   }

@@ -32,6 +32,10 @@ const api = new Api({
   }
 }); 
 
+const deleteClass = popupObj.deleteClass;  
+const deleteFormPopup = new PopupWithDelete({ selector: deleteClass });
+deleteFormPopup.setEventListeners();
+
 const formValidators = {}
 
 const enableValidation = (config) => {
@@ -58,6 +62,24 @@ function createCard(item) {
   const card = new Card( item, сardObj.elementSelector, handleCardClick, handleDeleteCard, handleLikeCard, handleDislikeCard, userId);
   const cardElement = card.generateCard();
   return cardElement
+}
+
+const handleDeleteCard = (item) => {
+    deleteFormPopup.setSubmitHandler( _ => {
+      const id = item._id;  
+      deleteFormPopup.handleSubmitButton('normal', deleteType);       
+        api.deleteCard(id)
+          .then(() => {
+            item._element.remove();
+            deleteFormPopup.close()
+            deleteFormPopup.handleSubmitButton('then', deleteType); 
+          })
+          .finally( _ => {        
+            deleteFormPopup.handleSubmitButton('finally', deleteType);
+          })   
+          .catch((err) => console.log(err))
+    })
+  deleteFormPopup.open();
 }
 
 const handleLikeCard = (item) => {
@@ -106,28 +128,6 @@ function openProfilePopup() {
   jobInput.value = infoObj.caption; 
   formValidators['form-edit-profile'].enableValidation();
   editFormPopup.open();
-}
-
-const handleDeleteCard = (item) => {
-    const deleteClass = popupObj.deleteClass;  
-    const deleteFormPopup = new PopupWithDelete({ selector: deleteClass, handleFormSubmit: () => {
-      const id = item._id;
-      deleteFormPopup.handleSubmitButton('normal', deleteType); 
-      api.deleteCard(id)
-        .then(() => {
-          item._element.remove();
-          deleteFormPopup.close()
-          deleteFormPopup.handleSubmitButton('then', deleteType); 
-        })
-        .finally( _ => {        
-          deleteFormPopup.handleSubmitButton('finally', deleteType);
-        })   
-        .catch((err) => console.log(err))
-      } 
-    });
-    deleteFormPopup.open();
-    deleteFormPopup.setEventListeners();
-
 }
 
 const addCardClass = popupObj.addCardClass;  
