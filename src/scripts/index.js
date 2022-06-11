@@ -85,6 +85,7 @@ const handleDeleteCard = (item) => {
 const handleLikeCard = (item) => {
   api.likeCard(item)
     .then((res) => {  
+      item._element.querySelector('.element__like').classList.toggle('element__like_active');
       const number = item._element.querySelector('.element__num-like'); 
       number.textContent = res.likes.length;
   })
@@ -93,7 +94,8 @@ const handleLikeCard = (item) => {
 
 const handleDislikeCard = (item) => {
   api.dislikeCard(item)
-    .then((res) => {   
+    .then((res) => {  
+      item._element.querySelector('.element__like').classList.toggle('element__like_active'); 
       const number = item._element.querySelector('.element__num-like'); 
       number.textContent = res.likes.length;
   })
@@ -139,15 +141,9 @@ const addCardFormPopup = new PopupWithForm({
       addCardFormPopup.handleSubmitButton('normal', formaCard);
       api.createCard(card)
         .then((data) => {
-          const sectionCard = new Section({
-            data: data,
-            renderer: (data) => {
-              const cardElement = createCard(data);
-              sectionCard.addItem(cardElement);
-            }}, сardObj.cardsContainer);
-          sectionCard.renderItem();
-          addCardFormPopup.close();
-          addCardFormPopup.handleSubmitButton('then', formaCard);             
+          sectionCard.renderItem(data);
+          addCardFormPopup.handleSubmitButton('then', formaCard);     
+          addCardFormPopup.close();        
         })
         .finally( _ => {        
           addCardFormPopup.handleSubmitButton('finally', formaCard);

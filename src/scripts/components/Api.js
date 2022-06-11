@@ -1,10 +1,5 @@
 
-const handleResponse = (res) => {
-    if(res.ok) {
-      return res.json()
-    }
-    return Promise.reject('Ошибка')
-  }
+
 
 class Api {
     constructor(config) {
@@ -12,12 +7,19 @@ class Api {
         this.headers = config.headers;
     }
 
+    _handleResponse = (res) => {
+        if(res.ok) {
+          return res.json()
+        }
+        return Promise.reject('Ошибка')
+      }
+
     UserInfo() {
         return fetch(this.url + `/users/me`, {
             method: 'GET',
             headers: this.headers
         })
-        .then(handleResponse)
+        .then(this._handleResponse)
     }
 
     updateInfo(data) {
@@ -26,7 +28,7 @@ class Api {
             headers: this.headers,
             body: JSON.stringify(data)
         })
-        .then(handleResponse)
+        .then(this._handleResponse)
     }
 
     getInitialCards() {
@@ -35,7 +37,7 @@ class Api {
             headers: this.headers,
             
         })
-        .then(handleResponse)        
+        .then(this._handleResponse)        
     }
 
     createCard(data) {
@@ -44,7 +46,7 @@ class Api {
             headers: this.headers,
             body: JSON.stringify(data)
         })
-        .then(handleResponse)
+        .then(this._handleResponse)
     }
 
     deleteCard(id) {
@@ -53,7 +55,7 @@ class Api {
             headers: this.headers,
             body: JSON.stringify({id})
         })
-        .then(handleResponse)
+        .then(this._handleResponse)
     }
 
     likeCard(data) {
@@ -63,7 +65,7 @@ class Api {
             headers: this.headers,
             body: JSON.stringify({id})
         })
-        .then(handleResponse)
+        .then(this._handleResponse)
     }
 
     dislikeCard(data) {
@@ -73,7 +75,7 @@ class Api {
             headers: this.headers,
             body: JSON.stringify({id})
         })
-        .then(handleResponse)
+        .then(this._handleResponse)
     }
     
     updateAvatar(data) {
@@ -82,7 +84,7 @@ class Api {
             headers: this.headers,
             body: JSON.stringify(data)
         })
-        .then(handleResponse)
+        .then(this._handleResponse)
     }
 
     getAllNeededData() {

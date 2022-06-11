@@ -10,8 +10,8 @@ export default class Section {
      array.slice().reverse().forEach(item => this.renderer(item) );
     }
 
-    renderItem() {
-      this.renderer(this._renderedItems);
+    renderItem(item) {
+      this.renderer(item);
     }
 
     addItem(element) {
