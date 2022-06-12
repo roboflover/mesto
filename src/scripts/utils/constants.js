@@ -1,3 +1,18 @@
+export const formaRendLoad = {
+  normal: 'Сохранение...',
+  finally: 'Сохранить'
+}
+
+export const deleteRendLoad = {
+  normal: 'Удаление...',
+  finally: 'Да'
+}
+
+export const cardRendLoad = {
+  normal: 'Создание...',
+  finally: 'Создать'
+}
+
 export const cardPopup = document.querySelector('.add-card-popup');
 export const cardAddBtn = document.querySelector('.profile__add-button');
 

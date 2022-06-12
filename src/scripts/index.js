@@ -11,9 +11,9 @@ import { Api } from './components/Api.js';
 
 import {
   cardAddBtn, profileName, profileCaption, profileEditBtn, 
-  nameInput, jobInput, formEditProfile, formAddCard, 
-  formObj, сardObj, popupObj, card, profileAvatar, formAvatar, 
-  headerAvatar, headerAvaContainer, deleteType, formaType, formDelete, formaCard,
+  nameInput, jobInput, formObj, сardObj, popupObj, card, profileAvatar,
+  headerAvatar, headerAvaContainer, deleteType, formaType, formaCard,
+  formaRendLoad, deleteRendLoad, cardRendLoad
 } from './utils/constants.js'
 
 const profileClass = popupObj.profileClass;
@@ -67,15 +67,14 @@ function createCard(item) {
 const handleDeleteCard = (item) => {
     deleteFormPopup.setSubmitHandler( _ => {
       const id = item._id;  
-      deleteFormPopup.handleSubmitButton('normal', deleteType);       
+      deleteFormPopup.renderLoading( deleteRendLoad.normal );
         api.deleteCard(id)
           .then(() => {
             item._element.remove();
             deleteFormPopup.close()
-            deleteFormPopup.handleSubmitButton('then', deleteType); 
           })
           .finally( _ => {        
-            deleteFormPopup.handleSubmitButton('finally', deleteType);
+            deleteFormPopup.renderLoading( deleteRendLoad.finally );
           })   
           .catch((err) => console.log(err))
     })
@@ -108,15 +107,14 @@ const editFormPopup = new PopupWithForm({
   handleFormSubmit: (input) => { 
     input.name = input.text0;
     input.about = input.text1;
-    editFormPopup.handleSubmitButton('normal', formaType);
+    editFormPopup.renderLoading(formaRendLoad.normal);
     api.updateInfo(input)
     .then((res) => {
       userInfoProfile.setUserInfo(res.name, res.about, res.avatar);
-      editFormPopup.handleSubmitButton('then', formaType);
       editFormPopup.close();
     })
     .finally(() => {
-      editFormPopup.handleSubmitButton('finally', formaType); 
+      editFormPopup.renderLoading( formaRendLoad.finally );
     })   
     .catch((err) => console.log(err)) 
   }
@@ -138,15 +136,14 @@ const addCardFormPopup = new PopupWithForm({
     handleFormSubmit: (input) => { 
       card.name = input.text0;
       card.link = input.text1;
-      addCardFormPopup.handleSubmitButton('normal', formaCard);
+      addCardFormPopup.renderLoading(cardRendLoad.normal);
       api.createCard(card)
         .then((data) => {
           sectionCard.renderItem(data);
-          addCardFormPopup.handleSubmitButton('then', formaCard);     
           addCardFormPopup.close();        
         })
         .finally( _ => {        
-          addCardFormPopup.handleSubmitButton('finally', formaCard);
+          addCardFormPopup.renderLoading( cardRendLoad.finally );
         })     
         .catch((err) => console.log(err))   
     }
@@ -167,15 +164,15 @@ const editAvatarPopup = new PopupWithForm({
   selector: avatarClass, 
   handleFormSubmit: (input) => {     
     const json = { avatar: input.text0 }
-    editAvatarPopup.handleSubmitButton('normal', formaType);  
+    editAvatarPopup.renderLoading( formaRendLoad.normal );
     api.updateAvatar(json)
       .then((userData) => {  
         userInfoProfile.setUserInfo( userData.name, userData.about, userData.avatar );
-        editAvatarPopup.handleSubmitButton('then', formaType);
+        // 
         editAvatarPopup.close(); 
     })    
       .finally(() => {
-        editAvatarPopup.handleSubmitButton('finally', formaType);       
+        editAvatarPopup.renderLoading( formaRendLoad.finally );      
     })
       .catch((err) => console.log(err))    
   }
